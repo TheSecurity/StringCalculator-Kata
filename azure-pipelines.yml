@@ -28,11 +28,9 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*StringCalculatorTests.dll'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    vsTestVersion: '16.0'
-
+    command: test
+    projects: '**/*StringCalculatorTests/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
