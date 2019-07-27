@@ -38,3 +38,7 @@ steps:
     command: test
     projects: '**/*StringCalculatorTests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'xUnit'
