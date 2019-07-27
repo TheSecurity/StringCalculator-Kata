@@ -9,7 +9,6 @@ matrix:
     - mono: latest
 
 install:
-  - nuget restore kata1_StringCalculator.sln
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - msbuild /p:Configuration=Release kata1_StringCalculator.sln
