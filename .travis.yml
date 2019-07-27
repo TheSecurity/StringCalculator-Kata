@@ -1,2 +1,3 @@
 language: csharp
 mono: latest
+solution: kata1_StringCalculator.sln
