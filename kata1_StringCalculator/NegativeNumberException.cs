@@ -7,8 +7,6 @@ namespace kata1_StringCalculator
     {
         public NegativeNumberException(IEnumerable<int> negativeNumbers) :
             base("Negatives not allowed: " + string.Join(',', negativeNumbers))
-        {
-
-        }
+        { }
     }
 }

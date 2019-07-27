@@ -6,7 +6,9 @@ namespace kata1_StringCalculator
 {
     public class Calculator
     {
-        internal static void Main() { }
+        internal static void Main()
+            => Console.WriteLine(Add(Console.ReadLine()));
+        
 
         //Exercise: https://github.com/ardalis/kata-catalog/blob/master/katas/String%20Calculator.md
         public static int Add(string input)

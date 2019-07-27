@@ -1,10 +1,9 @@
-using System;
-using Xunit;
 using kata1_StringCalculator;
+using Xunit;
 
-namespace UnitTests
+namespace StringCalculatorTests
 {
-    public class StringCalculator_AddShould
+    public class StringCalculatorAddShould
     {
         [Theory]
         [InlineData(0,"0")]
@@ -58,12 +57,11 @@ namespace UnitTests
             Assert.Equal(expected, result);
         }
 
-        [Theory]
-        [InlineData(3, "-1,2")]
-        public void ThrowsException_NegativeNumbersEntered(int expected, string input)
+        [Fact]
+        public void ThrowsException_NegativeNumbersEntered()
         {
-            void TestCode() => Calculator.Add(input);
-            var exception = Assert.Throws<NegativeNumberException>((Action) TestCode);
+            void TestCode() => Calculator.Add("-1,2");
+            var exception = Assert.Throws<NegativeNumberException>(TestCode);
             Assert.Contains("-1", exception.Message);
         }
 
