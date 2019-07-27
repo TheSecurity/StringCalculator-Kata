@@ -36,5 +36,5 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: test
-    projects: '**/StringCalculator_AddShould/*.csproj'
+    projects: '**/StringCalculatorTests.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
