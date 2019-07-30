@@ -11,7 +11,7 @@ namespace StringCalculatorTests
         [InlineData(2, "2")]
         public void ReturnNumber_AddedNumber(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected,result);
         }
@@ -19,7 +19,7 @@ namespace StringCalculatorTests
         [Fact]
         public void ReturnZero_StringIsEmpty()
         {
-            var result = Calculator.Add("");
+            var result = Program.Add("");
 
             Assert.Equal(0,result);
         }
@@ -30,7 +30,7 @@ namespace StringCalculatorTests
         [InlineData(3, "1,2,,,")]
         public void ReturnSum_NumbersString(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected, result);
         }
@@ -41,7 +41,7 @@ namespace StringCalculatorTests
         [InlineData(7, "2,2,3")]
         public void ReturnSum_NumbersSplittedViaCommasOrNewLine(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected, result);
         }
@@ -52,7 +52,7 @@ namespace StringCalculatorTests
         [InlineData(11, "//[.]\n5.2,3\n1")]
         public void ReturnSum_NumbersSplittedViaCustomDelimiter(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected, result);
         }
@@ -60,7 +60,7 @@ namespace StringCalculatorTests
         [Fact]
         public void ThrowsException_NegativeNumbersEntered()
         {
-            void TestCode() => Calculator.Add("-1,2");
+            void TestCode() => Program.Add("-1,2");
             var exception = Assert.Throws<NegativeNumberException>(TestCode);
             Assert.Contains("-1", exception.Message);
         }
@@ -71,7 +71,7 @@ namespace StringCalculatorTests
         [InlineData(1000, "1111,1000,1002")]
         public void ReturnNumbersLower1000(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected, result);
         }
@@ -80,7 +80,7 @@ namespace StringCalculatorTests
         [InlineData(6, "//[|||]\n1|||2|||3")]
         public void ReturnsNumber_NumbersWithMultipleDelimiterString(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected, result);
         }
@@ -89,7 +89,7 @@ namespace StringCalculatorTests
         [InlineData(6, "//[|][%]\n1|2%3")]
         public void ReturnsNumber_NumbersWithMultipleDifferentDelimiters(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected, result);
         }
@@ -98,7 +98,7 @@ namespace StringCalculatorTests
         [InlineData(6, "//[||][%]\n1||2%3")]
         public void ReturnsNumber_NumbersWithMultipleDifferentLengthDelimiters(int expected, string input)
         {
-            var result = Calculator.Add(input);
+            var result = Program.Add(input);
 
             Assert.Equal(expected, result);
         }
