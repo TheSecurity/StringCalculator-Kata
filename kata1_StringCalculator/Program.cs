@@ -4,11 +4,10 @@ using System.Linq;
 
 namespace kata1_StringCalculator
 {
-    public class Calculator
+    public class Program
     {
         internal static void Main()
             => Console.WriteLine(Add(Console.ReadLine()));
-        
 
         //Exercise: https://github.com/ardalis/kata-catalog/blob/master/katas/String%20Calculator.md
         public static int Add(string input)
